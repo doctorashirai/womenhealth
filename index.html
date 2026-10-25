@@ -47,7 +47,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Top Bar */
         .top-bar {
             background: var(--brand-navy);
             color: #fff;
@@ -58,7 +57,6 @@
             text-transform: uppercase;
         }
 
-        /* Header */
         header {
             background: var(--surface-card);
             border-bottom: 1px solid var(--border-color);
@@ -108,7 +106,6 @@
             transform: translateY(-2px);
         }
 
-        /* Container */
         .main-container {
             max-width: 900px;
             margin: 40px auto;
@@ -146,7 +143,6 @@
             font-size: 1rem;
         }
 
-        /* Progress Bar */
         .progress-stepper {
             display: flex;
             justify-content: space-between;
@@ -211,7 +207,6 @@
             color: #fff;
         }
 
-        /* Card Container */
         .card {
             background: var(--surface-card);
             border-radius: var(--radius-lg);
@@ -248,7 +243,6 @@
             margin-bottom: 30px;
         }
 
-        /* Diagrams Grid for Step 1 */
         .diagram-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -295,7 +289,6 @@
             color: var(--text-muted);
         }
 
-        /* Form Controls for Step 2 */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -313,10 +306,6 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
         }
 
         label {
@@ -341,7 +330,6 @@
             background: #fff;
         }
 
-        /* Action Buttons */
         .btn-group {
             display: flex;
             justify-content: space-between;
@@ -399,7 +387,6 @@
             box-shadow: 0 12px 25px rgba(37, 211, 102, 0.3);
         }
 
-        /* Results Display */
         .result-box {
             background: var(--accent-rose);
             border: 1px solid var(--accent-rose-dark);
@@ -461,7 +448,6 @@
             top: -2px;
         }
 
-        /* Disclaimer */
         .disclaimer {
             font-size: 0.75rem;
             color: var(--text-muted);
@@ -473,12 +459,10 @@
 </head>
 <body>
 
-    <!-- Top Bar -->
     <div class="top-bar">
         Confidential Clinical Assessment • Dr. Ayesha Elite Care
     </div>
 
-    <!-- Header -->
     <header>
         <div class="header-container">
             <a href="#" class="logo">Dr. Ayesha <span>Elite Care</span></a>
@@ -488,17 +472,14 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <div class="main-container">
 
-        <!-- Intro Box -->
         <div class="intro-box">
             <span class="badge">Women's Health & Wellness</span>
             <h1>Breast Firmness & Ptosis Self-Assessment</h1>
             <p>An interactive clinical-based diagnostic tool designed to help you analyze breast tissue laxity, structural firmness, and receive a personalized non-surgical wellness care plan.</p>
         </div>
 
-        <!-- Progress Stepper -->
         <div class="progress-stepper">
             <div class="progress-bar-fill" id="progress-fill"></div>
             <div class="step-circle active" id="circle-1">1</div>
@@ -506,27 +487,20 @@
             <div class="step-circle" id="circle-3">3</div>
         </div>
 
-        <!-- Card Body -->
         <div class="card">
             
-            <!-- STEP 1: Visual Stage Selection -->
+            <!-- STEP 1 -->
             <div class="step-content active" id="step-1">
                 <h2 class="step-title">Select Your Visual Stage</h2>
                 <p class="step-subtitle">Compare with anatomical reference diagrams relative to the Inframammary Fold (IMF line).</p>
 
                 <div class="diagram-grid">
                     
-                    <!-- Stage 0 -->
                     <div class="stage-card" onclick="selectStage(0, this)">
-                        <!-- SVG Stage 0 -->
                         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Chest wall -->
                             <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <!-- Breast Contour (Firm / High) -->
                             <path d="M40 50 C90 50, 150 70, 140 105 C130 135, 80 140, 40 140" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
-                            <!-- Inframammary Fold Line -->
                             <line x1="20" y1="140" x2="180" y2="140" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <!-- Nipple (Above Fold) -->
                             <circle cx="140" cy="100" r="6" fill="#c5a880"/>
                             <text x="65" y="175" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
                         </svg>
@@ -534,15 +508,11 @@
                         <p>Nipple is well above the inframammary fold line. Full upper pole volume.</p>
                     </div>
 
-                    <!-- Stage 1 -->
                     <div class="stage-card" onclick="selectStage(1, this)">
-                        <!-- SVG Stage 1 -->
                         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <!-- Slightly lower pole expansion -->
                             <path d="M40 50 C80 55, 150 85, 135 125 C120 155, 70 150, 40 145" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
                             <line x1="20" y1="125" x2="180" y2="125" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <!-- Nipple at Fold Line -->
                             <circle cx="134" cy="125" r="6" fill="#c5a880"/>
                             <text x="65" y="175" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
                         </svg>
@@ -550,15 +520,11 @@
                         <p>Nipple sits right at the level of the inframammary fold line.</p>
                     </div>
 
-                    <!-- Stage 2 -->
                     <div class="stage-card" onclick="selectStage(2, this)">
-                        <!-- SVG Stage 2 -->
                         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <!-- Lower pole droop -->
                             <path d="M40 50 C70 60, 140 100, 125 145 C110 175, 60 160, 40 150" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
                             <line x1="20" y1="120" x2="180" y2="120" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <!-- Nipple below fold but above lowest contour -->
                             <circle cx="120" cy="140" r="6" fill="#c5a880"/>
                             <text x="65" y="185" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
                         </svg>
@@ -566,15 +532,11 @@
                         <p>Nipple drops below the fold line, but remains above lower breast contour.</p>
                     </div>
 
-                    <!-- Stage 3 -->
                     <div class="stage-card" onclick="selectStage(3, this)">
-                        <!-- SVG Stage 3 -->
                         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <!-- Significant sag -->
                             <path d="M40 50 C60 65, 130 110, 110 165 C90 185, 50 170, 40 155" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
                             <line x1="20" y1="110" x2="180" y2="110" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <!-- Nipple pointing downwards at lowest contour -->
                             <circle cx="95" cy="172" r="6" fill="#c5a880"/>
                             <text x="65" y="195" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
                         </svg>
@@ -589,7 +551,7 @@
                 </div>
             </div>
 
-            <!-- STEP 2: Clinical Details -->
+            <!-- STEP 2 -->
             <div class="step-content" id="step-2">
                 <h2 class="step-title">Clinical & Lifestyle Factors</h2>
                 <p class="step-subtitle">Provide details to calculate structural risk factors and tissue elasticity loss.</p>
@@ -660,7 +622,7 @@
                 </div>
             </div>
 
-            <!-- STEP 3: Report & WhatsApp Action -->
+            <!-- STEP 3: Self-Assessment Report & Optional WhatsApp Consultation -->
             <div class="step-content" id="step-3">
                 
                 <div class="result-box">
@@ -671,24 +633,22 @@
 
                 <div class="report-section">
                     <h4>Primary Contributing Factors</h4>
-                    <ul id="report-factors">
-                        <!-- Populated dynamically -->
-                    </ul>
+                    <ul id="report-factors"></ul>
                 </div>
 
                 <div class="report-section">
                     <h4>Dr. Ayesha's Recommended Non-Surgical Regimen</h4>
-                    <ul id="report-recommendations">
-                        <!-- Populated dynamically -->
-                    </ul>
+                    <ul id="report-recommendations"></ul>
                 </div>
 
-                <div style="margin-top: 35px; text-align: center;">
-                    <p style="font-size: 0.9rem; color: var(--brand-navy); font-weight: 600; margin-bottom: 12px;">
-                        Send your complete assessment directly to Dr. Ayesha for personalized consultation & treatment planning:
+                <!-- Optional Consultation Prompt -->
+                <div style="margin-top: 35px; background: #fff; border: 1px dashed var(--accent-gold); padding: 25px; border-radius: var(--radius-md); text-align: center;">
+                    <h4 style="color: var(--brand-navy); margin-bottom: 8px; font-size: 1.1rem;">Would you like a professional expert consultation?</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+                        If you wish to discuss your assessment results with Dr. Ayesha for a customized one-on-one care plan, you can securely share your report directly via WhatsApp.
                     </p>
                     <button class="btn btn-whatsapp-large" onclick="sendToWhatsApp()">
-                        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> Send Report to Dr. Ayesha on WhatsApp
+                        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> Connect with Dr. Ayesha on WhatsApp
                     </button>
                 </div>
 
@@ -697,7 +657,7 @@
                 </div>
 
                 <div class="disclaimer">
-                    <strong>Medical Disclaimer:</strong> This self-assessment tool is provided for educational and wellness guidance purposes only. It does not replace formal clinical examination. All shared details remain strictly private between you and Dr. Ayesha.
+                    <strong>Medical Disclaimer:</strong> This self-assessment tool is provided for educational and wellness guidance purposes only. Your data is private and only shared if you explicitly choose to click the WhatsApp connection button.
                 </div>
 
             </div>
@@ -707,7 +667,6 @@
     </div>
 
     <script>
-        // State variables
         let selectedStage = 0;
 
         function selectStage(stageNumber, element) {
@@ -717,18 +676,15 @@
             element.classList.add('selected');
         }
 
-        // Initialize default selection
         document.addEventListener("DOMContentLoaded", () => {
             const firstCard = document.querySelectorAll('.stage-card')[0];
             if(firstCard) firstCard.classList.add('selected');
         });
 
         function goToStep(step) {
-            // Update steppers
             document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
             document.getElementById(`step-${step}`).classList.add('active');
 
-            // Update circles & progress bar
             const circle1 = document.getElementById('circle-1');
             const circle2 = document.getElementById('circle-2');
             const circle3 = document.getElementById('circle-3');
@@ -755,14 +711,11 @@
         }
 
         function generateReport() {
-            const age = document.getElementById('age').value;
             const breastfeeding = document.getElementById('breastfeeding').value;
             const weightFluctuation = document.getElementById('weightFluctuation').value;
             const skinElasticity = document.getElementById('skinElasticity').value;
-            const bpStatus = document.getElementById('bpStatus').value;
             const braSupport = document.getElementById('braSupport').value;
 
-            // Elements
             const badge = document.getElementById('report-stage-badge');
             const title = document.getElementById('report-title');
             const summary = document.getElementById('report-summary');
@@ -772,7 +725,6 @@
             factorsList.innerHTML = '';
             recoList.innerHTML = '';
 
-            // Stage-specific text
             if (selectedStage === 0) {
                 badge.innerText = "STAGE 0 • FIRM & ELEVATED";
                 title.innerText = "Optimal Tissue Elasticity";
@@ -791,9 +743,8 @@
                 summary.innerText = "Significant loss of upper pole volume and stretch in supporting ligaments. A comprehensive consultation with Dr. Ayesha is advised to evaluate specialized tightening and firming protocols.";
             }
 
-            // Populate Factors
             if (breastfeeding !== 'none') {
-                factorsList.innerHTML += `<li>Lactation history (${breastfeeding}): Post-lactation volume changes contribute to envelope stretching.</li>`;
+                factorsList.innerHTML += `<li>Lactation history: Post-lactation volume changes contribute to envelope stretching.</li>`;
             }
             if (weightFluctuation !== 'stable') {
                 factorsList.innerHTML += `<li>Weight fluctuations: Stretching of skin envelope and adipose tissue shifts.</li>`;
@@ -808,7 +759,6 @@
                 factorsList.innerHTML = `<li>Natural age-related glandular changes and micro-gravity effects.</li>`;
             }
 
-            // Populate Recommendations
             recoList.innerHTML += `<li><strong>Pectoralis Muscle Toning:</strong> Targeted isometric chest presses & targeted resistance training to create a natural chest lift base.</li>`;
             recoList.innerHTML += `<li><strong>Topical Tightening Regimen:</strong> Daily bio-active peptide & collagen-boosting serums applied with upward lymphatic massage.</li>`;
             if (skinElasticity === 'poor' || selectedStage >= 2) {
