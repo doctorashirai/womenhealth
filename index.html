@@ -48,24 +48,27 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Announcement Bar */
+        /* Moving Announcement Bar */
         .announcement-bar {
             background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-light) 100%);
             color: #fff;
-            text-align: center;
-            padding: 10px 20px;
-            font-size: 0.85rem;
+            padding: 10px 0;
+            font-size: 0.88rem;
             letter-spacing: 0.5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
             border-bottom: 2px solid var(--accent-gold);
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .announcement-bar marquee {
+            font-weight: 500;
         }
 
         .announcement-bar span {
             color: var(--accent-gold);
             font-weight: 600;
+            margin: 0 25px;
         }
 
         /* Header */
@@ -93,6 +96,7 @@
             font-weight: 700;
             color: var(--brand-navy);
             text-decoration: none;
+            cursor: pointer;
         }
 
         .logo span {
@@ -160,10 +164,10 @@
 
         /* Views management */
         .view-section {
-            display: none;
+            display: none !important;
         }
         .view-section.active {
-            display: block;
+            display: block !important;
             animation: fadeIn 0.4s ease forwards;
         }
 
@@ -367,15 +371,17 @@
             padding: 15px 32px;
             width: 100%;
             justify-content: center;
-            box-shadow: 0 10px 22px rgba(37, 211, 102, 0.25);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
             margin-top: 25px;
             border-radius: 50px;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-whatsapp-large:hover {
             background-color: #1eb954;
             transform: translateY(-2px);
-            box-shadow: 0 14px 28px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
         }
 
         .result-box {
@@ -445,15 +451,17 @@
 </head>
 <body>
 
-    <!-- Announcement Bar -->
+    <!-- Moving Announcement Bar -->
     <div class="announcement-bar">
-        <i class="fas fa-sparkles"></i> Exclusive Women's Health & Wellness Hub • <span>Book Direct Consultation with Dr. Ayesha</span>
+        <marquee scrollamount="6">
+            ✨ Welcome to Dr. Ayesha Elite Care • <span>Exclusive Women's Health & Wellness Hub</span> • Book Direct Consultation via WhatsApp: <span>+971 50 526 6109</span> • Professional Clinical Tools & Guidance 🌟
+        </marquee>
     </div>
 
     <!-- Header -->
     <header>
         <div class="header-container">
-            <a href="#" class="logo" onclick="showHome(); return false;">Dr. Ayesha <span>Elite Care</span></a>
+            <a class="logo" onclick="showHome()">Dr. Ayesha <span>Elite Care</span></a>
             <a href="https://wa.me/971505266109" target="_blank" class="btn-whatsapp-header">
                 <i class="fab fa-whatsapp"></i> Direct WhatsApp
             </a>
@@ -566,4 +574,272 @@
                         <h4>Stage 2 (Moderate)</h4>
                     </div>
                     <div class="stage-card" onclick="selectBreastStage(3, this)">
-                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c20 15 90 60 70 115s-40 5-70-10" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="110" x2="180" y2="110" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><c
+                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c20 15 90 60 70 115s-40 5-70-10" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="110" x2="180" y2="110" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><circle cx="95" cy="172" r="6" fill="#c5a880"/></svg>
+                        <h4>Stage 3 (Advanced)</h4>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group"><label>Age Group</label><select id="b-age"><option>Under 25</option><option selected>25 - 35</option><option>36 - 45</option><option>Above 45</option></select></div>
+                    <div class="form-group"><label>Lactation History</label><select id="b-lac"><option>None / Never</option><option>Under 6 months</option><option>6 - 12 months</option><option>Over 12 months</option></select></div>
+                </div>
+                <button class="btn btn-primary" onclick="calcBreast()">Generate Clinical Report</button>
+                
+                <div id="res-breast" class="result-box">
+                    <h3 id="res-b-title"></h3>
+                    <p id="res-b-desc" style="color:#4b5563; font-size:0.98rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('Breast Firmness Report', document.getElementById('res-b-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 2: PCOS EVALUATOR -->
+        <div id="tool-pcos" class="view-section">
+            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to All Tools</button>
+            <div class="card">
+                <h2 class="tool-title">PCOS Symptom Risk Evaluator</h2>
+                <p class="tool-subtitle">Check your hormonal and metabolic risk indicators.</p>
+                <div class="form-grid">
+                    <div class="form-group"><label>Cycle Regularity</label><select id="p-cycle"><option>Regular (26-32 days)</option><option>Irregular (&gt;35 days or skipped)</option><option>Absent</option></select></div>
+                    <div class="form-group"><label>Hormonal Symptoms (Acne / Hair growth)</label><select id="p-symp"><option>None</option><option>Mild</option><option>Moderate to Severe</option></select></div>
+                </div>
+                <button class="btn btn-primary" onclick="calcPcos()">Evaluate PCOS Risk</button>
+                <div id="res-pcos" class="result-box">
+                    <h3 id="res-p-title"></h3>
+                    <p id="res-p-desc" style="color:#4b5563; font-size:0.98rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('PCOS Risk Evaluation', document.getElementById('res-p-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 3: PERIOD CALCULATOR -->
+        <div id="tool-period" class="view-section">
+            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to All Tools</button>
+            <div class="card">
+                <h2 class="tool-title">Menstrual & Ovulation Calculator</h2>
+                <p class="tool-subtitle">Estimate your next cycle and fertile window.</p>
+                <div class="form-grid">
+                    <div class="form-group"><label>First Day of Last Period</label><input type="date" id="per-date"></div>
+                    <div class="form-group"><label>Average Cycle Length (Days)</label><select id="per-len"><option value="28">28 Days</option><option value="30">30 Days</option><option value="32">32 Days</option><option value="35">35 Days</option></select></div>
+                </div>
+                <button class="btn btn-primary" onclick="calcPeriod()">Calculate Dates</button>
+                <div id="res-period" class="result-box">
+                    <h3 id="res-per-title"></h3>
+                    <p id="res-per-desc" style="color:#4b5563; font-size:0.98rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('Period Calculator', document.getElementById('res-per-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 4: PREGNANCY GESTATION -->
+        <div id="tool-pregnancy" class="view-section">
+            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to All Tools</button>
+            <div class="card">
+                <h2 class="tool-title">Gestational Age & Due Date Tracker</h2>
+                <p class="tool-subtitle">Find out your current pregnancy week and estimated delivery date.</p>
+                <div class="form-grid">
+                    <div class="form-group full-width"><label>First Day of Last Menstrual Period (LMP)</label><input type="date" id="preg-date"></div>
+                </div>
+                <button class="btn btn-primary" onclick="calcPregnancy()">Calculate Gestation</button>
+                <div id="res-pregnancy" class="result-box">
+                    <h3 id="res-preg-title"></h3>
+                    <p id="res-preg-desc" style="color:#4b5563; font-size:0.98rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('Gestational Age Tracker', document.getElementById('res-preg-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 5: BMI -->
+        <div id="tool-bmi" class="view-section">
+            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to All Tools</button>
+            <div class="card">
+                <h2 class="tool-title">BMI & Body Composition Tool</h2>
+                <p class="tool-subtitle">Calculate your body mass index and status.</p>
+                <div class="form-grid">
+                    <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmi-wt" placeholder="e.g. 65" value="65"></div>
+                    <div class="form-group"><label>Height (cm)</label><input type="number" id="bmi-ht" placeholder="e.g. 165" value="165"></div>
+                </div>
+                <button class="btn btn-primary" onclick="calcBmi()">Calculate BMI</button>
+                <div id="res-bmi" class="result-box">
+                    <h3 id="res-bmi-title"></h3>
+                    <p id="res-bmi-desc" style="color:#4b5563; font-size:0.98rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('BMI Tool', document.getElementById('res-bmi-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 6: SKINCARE -->
+        <div id="tool-skincare" class="view-section">
+            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to All Tools</button>
+            <div class="card">
+                <h2 class="tool-title">Skincare & Skin Type Analyzer</h2>
+                <p class="tool-subtitle">Determine your dermal profile for custom anti-aging care.</p>
+                <div class="form-grid">
+                    <div class="form-group"><label>Skin Texture & Feel by Midday</label><select id="skin-type"><option>Oily / Shiny across face</option><option>Dry / Flaky / Tight</option><option>Combination (Oily T-Zone, Dry cheeks)</option><option>Sensitive / Easily irritated</option></select></div>
+                    <div class="form-group"><label>Primary Concern</label><select id="skin-conc"><option>Aging & Fine Lines</option><option>Pigmentation & Dullness</option><option>Acne & Blemishes</option><option>Dehydration</option></select></div>
+                </div>
+                <button class="btn btn-primary" onclick="calcSkin()">Analyze Skin Profile</button>
+                <div id="res-skincare" class="result-box">
+                    <h3 id="res-skin-title"></h3>
+                    <p id="res-skin-desc" style="color:#4b5563; font-size:0.98rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('Skincare Analyzer', document.getElementById('res-skin-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 7: POSTPARTUM -->
+        <div id="tool-postpartum" class="view-section">
+            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to All Tools</button>
+            <div class="card">
+                <h2 class="tool-title">Postpartum Recovery & Core Tracker</h2>
+                <p class="tool-subtitle">Evaluate your post-delivery recovery stage and pelvic wellness.</p>
+                <div class="form-grid">
+                    <div class="form-group"><label>Time Since Delivery</label><select id="pp-time"><option>Under 6 weeks</option><option>6 weeks to 6 months</option><option>6 months to 1 year</option><option>Over 1 year</option></select></div>
+                    <div class="form-group"><label>Core / Diastasis Recti Check</label><select id="pp-core"><option>Significant gap / weakness</option><option>Slight softness</option><option>Fully healed / strong</option></select></div>
+                </div>
+                <button class="btn btn-primary" onclick="calcPostpartum()">Generate Recovery Guide</button>
+                <div id="res-postpartum" class="result-box">
+                    <h3 id="res-pp-title"></h3>
+                    <p id="res-pp-desc" style="color:#4b5563; font-size:0.98rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('Postpartum Tracker', document.getElementById('res-pp-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showHome() {
+            document.querySelectorAll('.view-section').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.getElementById('home-view').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openTool(toolName) {
+            document.querySelectorAll('.view-section').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            var target = document.getElementById('tool-' + toolName);
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        let selBStage = 0;
+        function selectBreastStage(st, el) {
+            selBStage = st;
+            document.querySelectorAll('#tool-breast .stage-card').forEach(function(c) {
+                c.classList.remove('selected');
+            });
+            el.classList.add('selected');
+        }
+
+        function calcBreast() {
+            const titles = ["Stage 0 (Firm & Elevated)", "Stage 1 (Mild Laxity)", "Stage 2 (Moderate Ptosis)", "Stage 3 (Advanced Ptosis)"];
+            const descs = [
+                "Your breast tissue displays excellent natural position and firm support. Maintenance regimens will focus on skin hydration and elasticity preservation.",
+                "Nipple positioning is aligned with the inframammary fold line. Non-surgical targeted therapies and pectoral strengthening can yield excellent results.",
+                "Tissue laxity has progressed below the fold line. A tailored clinical plan focusing on collagen remodeling and deep tissue support is recommended.",
+                "Significant loss of upper pole volume and stretch in supporting ligaments. A formal consultation with Dr. Ayesha is advised for specialized firming protocols."
+            ];
+            document.getElementById('res-b-title').innerText = titles[selBStage];
+            document.getElementById('res-b-desc').innerText = descs[selBStage];
+            document.getElementById('res-breast').style.display = 'block';
+        }
+
+        function calcPcos() {
+            const cyc = document.getElementById('p-cycle').value;
+            let title = "Low PCOS Risk Indicator";
+            let desc = "Your cycle regularity suggests healthy hormonal balance. Maintain routine wellness and active lifestyle.";
+            if(cyc.indexOf("Irregular") !== -1 || cyc.indexOf("Absent") !== -1) {
+                title = "Moderate to High PCOS Risk Indicator";
+                desc = "Irregularities detected. Dr. Ayesha recommends a professional metabolic panel and hormonal consultation.";
+            }
+            document.getElementById('res-p-title').innerText = title;
+            document.getElementById('res-p-desc').innerText = desc;
+            document.getElementById('res-pcos').style.display = 'block';
+        }
+
+        function calcPeriod() {
+            const dtVal = document.getElementById('per-date').value;
+            const len = parseInt(document.getElementById('per-len').value);
+            if(!dtVal) { alert("Please select a valid date."); return; }
+            let d = new Date(dtVal);
+            d.setDate(d.getDate() + len);
+            let nextDate = d.toDateString();
+            document.getElementById('res-per-title').innerText = "Estimated Next Period: " + nextDate;
+            document.getElementById('res-per-desc').innerText = "Based on a " + len + "-day cycle length. Your fertile window is roughly 12-16 days before your next expected period.";
+            document.getElementById('res-period').style.display = 'block';
+        }
+
+        function calcPregnancy() {
+            const dtVal = document.getElementById('preg-date').value;
+            if(!dtVal) { alert("Please select your LMP date."); return; }
+            let lmp = new Date(dtVal);
+            let today = new Date();
+            let diffDays = Math.floor((today - lmp) / (1000 * 60 * 60 * 24));
+            let weeks = Math.floor(diffDays / 7);
+            let days = diffDays % 7;
+            
+            let edd = new Date(lmp);
+            edd.setDate(edd.getDate() + 280);
+
+            document.getElementById('res-preg-title').innerText = "Gestational Age: " + weeks + " Weeks & " + days + " Days";
+            document.getElementById('res-preg-desc').innerText = "Estimated Due Date (EDD): " + edd.toDateString() + ". Consult Dr. Ayesha for trimester-specific care and nutritional planning.";
+            document.getElementById('res-pregnancy').style.display = 'block';
+        }
+
+        function calcBmi() {
+            let wt = parseFloat(document.getElementById('bmi-wt').value);
+            let ht = parseFloat(document.getElementById('bmi-ht').value) / 100;
+            if(!wt || !ht) return;
+            let bmi = (wt / (ht * ht)).toFixed(1);
+            let status = "Normal Weight";
+            if(bmi < 18.5) status = "Underweight";
+            else if(bmi >= 25 && bmi < 30) status = "Overweight";
+            else if(bmi >= 30) status = "Clinical Obesity Range";
+
+            document.getElementById('res-bmi-title').innerText = "Your BMI: " + bmi + " (" + status + ")";
+            document.getElementById('res-bmi-desc').innerText = "A balanced diet and specialized body composition plan can help achieve optimal metabolic health.";
+            document.getElementById('res-bmi').style.display = 'block';
+        }
+
+        function calcSkin() {
+            const type = document.getElementById('skin-type').value;
+            const conc = document.getElementById('skin-conc').value;
+            document.getElementById('res-skin-title').innerText = "Profile: " + type;
+            document.getElementById('res-skin-desc').innerText = "Customized prescription for " + conc + ": Daily peptide serums, advanced hydration, and targeted clinic-grade rejuvenation protocols.";
+            document.getElementById('res-skincare').style.display = 'block';
+        }
+
+        function calcPostpartum() {
+            const tm = document.getElementById('pp-time').value;
+            document.getElementById('res-pp-title').innerText = "Recovery Phase: " + tm;
+            document.getElementById('res-pp-desc').innerText = "Focused pelvic floor rehabilitation and progressive core strengthening exercises are recommended under clinical supervision.";
+            document.getElementById('res-postpartum').style.display = 'block';
+        }
+
+        function sendWhatsApp(toolName, resultText) {
+            const msg = "Hello Dr. Ayesha, I completed the *" + toolName + "* on your website.\n\n*Result / Status:* " + resultText + "\n\nI would like to book a consultation to discuss this further.";
+            window.open("https://wa.me/971505266109?text=" + encodeURIComponent(msg), '_blank');
+        }
+    </script>
+</body>
+</html>
