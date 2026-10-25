@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Ayesha | Elite Women's Health & Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf8f5;
+            --card-bg: #ffffff;
+            --text-primary: #2c2a29;
+            --accent-gold: #c5a880;
+            --soft-rose: #f4ebe6;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            width: 90%;
+            background: var(--card-bg);
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(197, 168, 128, 0.2);
+        }
+        .badge {
+            display: inline-block;
+            background-color: var(--soft-rose);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--text-primary);
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background-color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">Exclusive Wellness</span>
+        <h1>Dr. Ayesha Elite Care</h1>
+        <p>Elevating women's health, specialized fitness, bespoke skincare, and advanced diet regimens designed exclusively for your elite lifestyle.</p>
+        <a href="mailto:contact@draysha.com" class="btn">Book Consultation</a>
+    </div>
+</body>
+</html>
