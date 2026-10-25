@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Ayesha | Clinical Breast Ptosis & Firmness Self-Assessment</title>
+    <title>Dr. Ayesha | Elite Women's Health & Wellness Hub</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
             --radius-lg: 16px;
             --radius-md: 10px;
             --shadow: 0 10px 30px rgba(19, 27, 42, 0.05);
-            --shadow-hover: 0 15px 35px rgba(197, 168, 128, 0.15);
+            --shadow-hover: 0 20px 40px rgba(197, 168, 128, 0.25);
         }
 
         * {
@@ -67,7 +67,7 @@
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -107,7 +107,7 @@
         }
 
         .main-container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -131,95 +131,23 @@
         }
 
         .intro-box h1 {
-            font-size: 2.3rem;
+            font-size: 2.5rem;
             color: var(--brand-navy);
             margin-bottom: 12px;
         }
 
         .intro-box p {
             color: var(--text-muted);
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto;
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
-        .progress-stepper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            position: relative;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .progress-stepper::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--border-color);
-            z-index: 1;
-            transform: translateY(-50%);
-        }
-
-        .progress-bar-fill {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            height: 2px;
-            background: var(--accent-gold);
-            z-index: 1;
-            transform: translateY(-50%);
-            transition: width 0.4s ease;
-            width: 0%;
-        }
-
-        .step-circle {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--surface-card);
-            border: 2px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .step-circle.active {
-            border-color: var(--accent-gold);
-            background: var(--brand-navy);
-            color: #fff;
-        }
-
-        .step-circle.completed {
-            border-color: var(--accent-gold);
-            background: var(--accent-gold);
-            color: #fff;
-        }
-
-        .card {
-            background: var(--surface-card);
-            border-radius: var(--radius-lg);
-            padding: 35px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        .step-content {
+        /* Views management */
+        .view-section {
             display: none;
         }
-
-        .step-content.active {
+        .view-section.active {
             display: block;
             animation: fadeIn 0.4s ease forwards;
         }
@@ -229,64 +157,113 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .step-title {
-            font-size: 1.5rem;
-            color: var(--brand-navy);
-            margin-bottom: 8px;
-            text-align: center;
+        /* Tools Grid on Home */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        .step-subtitle {
-            text-align: center;
+        .tool-card {
+            background: var(--surface-card);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .tool-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--accent-rose);
+            color: var(--brand-navy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .tool-card:hover .tool-icon {
+            background: var(--brand-navy);
+            color: var(--accent-gold);
+        }
+
+        .tool-card h3 {
+            font-size: 1.25rem;
+            color: var(--brand-navy);
+            margin-bottom: 10px;
+        }
+
+        .tool-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 20px;
+        }
+
+        .tool-link {
+            font-weight: 600;
+            color: var(--accent-gold-dark);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Inner Tool Page Styles */
+        .card {
+            background: var(--surface-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--border-color);
+            color: var(--brand-navy);
+        }
+
+        .tool-title {
+            font-size: 1.8rem;
+            color: var(--brand-navy);
+            margin-bottom: 8px;
+        }
+
+        .tool-subtitle {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 30px;
-        }
-
-        .diagram-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .stage-card {
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #fff;
-            position: relative;
-        }
-
-        .stage-card:hover {
-            border-color: var(--accent-gold-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .stage-card.selected {
-            border-color: var(--accent-gold);
-            background: var(--accent-rose);
-        }
-
-        .stage-card svg {
-            width: 100%;
-            height: 140px;
-            margin-bottom: 12px;
-        }
-
-        .stage-card h4 {
-            font-size: 1rem;
-            color: var(--brand-navy);
-            margin-bottom: 4px;
-        }
-
-        .stage-card p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
         }
 
         .form-grid {
@@ -296,7 +273,7 @@
             margin-bottom: 30px;
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 768px) {
             .form-grid {
                 grid-template-columns: 1fr;
             }
@@ -330,13 +307,6 @@
             background: #fff;
         }
 
-        .btn-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-        }
-
         .btn {
             padding: 12px 28px;
             border-radius: 50px;
@@ -360,17 +330,6 @@
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border-color);
-            color: var(--brand-navy);
-        }
-
         .btn-whatsapp-large {
             background-color: #25d366;
             color: white;
@@ -379,6 +338,7 @@
             width: 100%;
             justify-content: center;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            margin-top: 25px;
         }
 
         .btn-whatsapp-large:hover {
@@ -392,67 +352,60 @@
             border: 1px solid var(--accent-rose-dark);
             border-radius: var(--radius-md);
             padding: 25px;
-            margin-bottom: 25px;
+            margin-top: 25px;
+            margin-bottom: 20px;
             text-align: center;
+            display: none;
         }
 
         .result-box h3 {
             color: var(--brand-navy);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
-        .result-badge {
-            display: inline-block;
-            background: var(--brand-navy);
-            color: var(--accent-gold);
-            padding: 4px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .report-section {
-            margin-bottom: 20px;
+        .stage-card {
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fff;
         }
 
-        .report-section h4 {
-            color: var(--brand-navy);
+        .stage-card:hover {
+            border-color: var(--accent-gold-dark);
+        }
+
+        .stage-card.selected {
+            border-color: var(--accent-gold);
+            background: var(--accent-rose);
+        }
+
+        .stage-card svg {
+            width: 100%;
+            height: 110px;
             margin-bottom: 8px;
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
         }
 
-        .report-section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .report-section ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 6px;
+        .stage-card h4 {
             font-size: 0.9rem;
-            color: var(--text-primary);
-        }
-
-        .report-section ul li::before {
-            content: "•";
-            color: var(--accent-gold-dark);
-            font-weight: bold;
-            font-size: 1.2rem;
-            position: absolute;
-            left: 0;
-            top: -2px;
+            color: var(--brand-navy);
         }
 
         .disclaimer {
             font-size: 0.75rem;
             color: var(--text-muted);
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
             line-height: 1.4;
         }
     </style>
@@ -460,12 +413,12 @@
 <body>
 
     <div class="top-bar">
-        Confidential Clinical Assessment • Dr. Ayesha Elite Care
+        Confidential Clinical Care • Dr. Ayesha Elite Care
     </div>
 
     <header>
         <div class="header-container">
-            <a href="#" class="logo">Dr. Ayesha <span>Elite Care</span></a>
+            <a href="#" class="logo" onclick="showHome(); return false;">Dr. Ayesha <span>Elite Care</span></a>
             <a href="https://wa.me/971505266109" target="_blank" class="btn-whatsapp-header">
                 <i class="fab fa-whatsapp"></i> Direct WhatsApp
             </a>
@@ -474,329 +427,126 @@
 
     <div class="main-container">
 
-        <div class="intro-box">
-            <span class="badge">Women's Health & Wellness</span>
-            <h1>Breast Firmness & Ptosis Self-Assessment</h1>
-            <p>An interactive clinical-based diagnostic tool designed to help you analyze breast tissue laxity, structural firmness, and receive a personalized non-surgical wellness care plan.</p>
-        </div>
-
-        <div class="progress-stepper">
-            <div class="progress-bar-fill" id="progress-fill"></div>
-            <div class="step-circle active" id="circle-1">1</div>
-            <div class="step-circle" id="circle-2">2</div>
-            <div class="step-circle" id="circle-3">3</div>
-        </div>
-
-        <div class="card">
-            
-            <!-- STEP 1 -->
-            <div class="step-content active" id="step-1">
-                <h2 class="step-title">Select Your Visual Stage</h2>
-                <p class="step-subtitle">Compare with anatomical reference diagrams relative to the Inframammary Fold (IMF line).</p>
-
-                <div class="diagram-grid">
-                    
-                    <div class="stage-card" onclick="selectStage(0, this)">
-                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <path d="M40 50 C90 50, 150 70, 140 105 C130 135, 80 140, 40 140" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
-                            <line x1="20" y1="140" x2="180" y2="140" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <circle cx="140" cy="100" r="6" fill="#c5a880"/>
-                            <text x="65" y="175" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
-                        </svg>
-                        <h4>Stage 0 (Firm / Normal)</h4>
-                        <p>Nipple is well above the inframammary fold line. Full upper pole volume.</p>
-                    </div>
-
-                    <div class="stage-card" onclick="selectStage(1, this)">
-                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <path d="M40 50 C80 55, 150 85, 135 125 C120 155, 70 150, 40 145" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
-                            <line x1="20" y1="125" x2="180" y2="125" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <circle cx="134" cy="125" r="6" fill="#c5a880"/>
-                            <text x="65" y="175" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
-                        </svg>
-                        <h4>Stage 1 (Mild Laxity)</h4>
-                        <p>Nipple sits right at the level of the inframammary fold line.</p>
-                    </div>
-
-                    <div class="stage-card" onclick="selectStage(2, this)">
-                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <path d="M40 50 C70 60, 140 100, 125 145 C110 175, 60 160, 40 150" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
-                            <line x1="20" y1="120" x2="180" y2="120" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <circle cx="120" cy="140" r="6" fill="#c5a880"/>
-                            <text x="65" y="185" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
-                        </svg>
-                        <h4>Stage 2 (Moderate Ptosis)</h4>
-                        <p>Nipple drops below the fold line, but remains above lower breast contour.</p>
-                    </div>
-
-                    <div class="stage-card" onclick="selectStage(3, this)">
-                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M40 20 C40 20, 40 180, 40 180" stroke="#d1d5db" stroke-width="3" stroke-dasharray="4 4"/>
-                            <path d="M40 50 C60 65, 130 110, 110 165 C90 185, 50 170, 40 155" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/>
-                            <line x1="20" y1="110" x2="180" y2="110" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/>
-                            <circle cx="95" cy="172" r="6" fill="#c5a880"/>
-                            <text x="65" y="195" fill="#6b7280" font-size="10" font-family="sans-serif">IMF Line (Fold)</text>
-                        </svg>
-                        <h4>Stage 3 (Advanced Ptosis)</h4>
-                        <p>Nipple sits at the lowest point of the contour, pointing downwards.</p>
-                    </div>
-
-                </div>
-
-                <div class="btn-group" style="justify-content: flex-end;">
-                    <button class="btn btn-primary" onclick="goToStep(2)">Next Step: Clinical Details <i class="fas fa-arrow-right"></i></button>
-                </div>
+        <!-- HOME VIEW (7 TOOLS GRID) -->
+        <div id="home-view" class="view-section active">
+            <div class="intro-box">
+                <span class="badge">Elite Women's Wellness Hub</span>
+                <h1>Advanced Clinical Self-Assessment Tools</h1>
+                <p>Select any diagnostic tool below to perform an interactive assessment, view your instant clinical report, and connect privately with Dr. Ayesha.</p>
             </div>
 
-            <!-- STEP 2 -->
-            <div class="step-content" id="step-2">
-                <h2 class="step-title">Clinical & Lifestyle Factors</h2>
-                <p class="step-subtitle">Provide details to calculate structural risk factors and tissue elasticity loss.</p>
+            <div class="tools-grid">
+                <!-- Tool 1: Breast Firmness -->
+                <div class="tool-card" onclick="openTool('breast')">
+                    <div>
+                        <div class="tool-icon"><i class="fas fa-heart-pulse"></i></div>
+                        <h3>Breast Firmness & Ptosis Assessment</h3>
+                        <p>Analyze breast tissue firmness and sagging stages relative to the inframammary fold line.</p>
+                    </div>
+                    <span class="tool-link">Start Assessment <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tool 2: PCOS Risk -->
+                <div class="tool-card" onclick="openTool('pcos')">
+                    <div>
+                        <div class="tool-icon"><i class="fas fa-venus"></i></div>
+                        <h3>PCOS Symptom Risk Evaluator</h3>
+                        <p>Evaluate hormonal balance, cycle irregularities, and metabolic indicators for PCOS risk.</p>
+                    </div>
+                    <span class="tool-link">Start Evaluation <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tool 3: Period & Ovulation -->
+                <div class="tool-card" onclick="openTool('period')">
+                    <div>
+                        <div class="tool-icon"><i class="fas fa-calendar-days"></i></div>
+                        <h3>Menstrual & Ovulation Calculator</h3>
+                        <p>Predict your next cycle dates, fertile windows, and peak ovulation periods accurately.</p>
+                    </div>
+                    <span class="tool-link">Calculate Cycle <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tool 4: Pregnancy & Gestation -->
+                <div class="tool-card" onclick="openTool('pregnancy')">
+                    <div>
+                        <div class="tool-icon"><i class="fas fa-baby"></i></div>
+                        <h3>Gestational Age & Due Date Tracker</h3>
+                        <p>Calculate exact pregnancy weeks, fetal developmental milestones, and expected delivery date.</p>
+                    </div>
+                    <span class="tool-link">Check Gestation <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tool 5: BMI & Body Comp -->
+                <div class="tool-card" onclick="openTool('bmi')">
+                    <div>
+                        <div class="tool-icon"><i class="fas fa-weight-scale"></i></div>
+                        <h3>BMI & Body Composition Tool</h3>
+                        <p>Assess your Body Mass Index and receive tailored wellness and dietary optimization tips.</p>
+                    </div>
+                    <span class="tool-link">Calculate BMI <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tool 6: Skincare Analyzer -->
+                <div class="tool-card" onclick="openTool('skincare')">
+                    <div>
+                        <div class="tool-icon"><i class="fas fa-spa"></i></div>
+                        <h3>Skincare & Skin Type Analyzer</h3>
+                        <p>Determine your dermal sensitivity and get a bespoke clinical-grade anti-aging routine.</p>
+                    </div>
+                    <span class="tool-link">Analyze Skin <i class="fas fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Tool 7: Postpartum Recovery -->
+                <div class="tool-card" onclick="openTool('postpartum')">
+                    <div>
+                        <div class="tool-icon"><i class="fas fa-shield-heart"></i></div>
+                        <h3>Postpartum Recovery & Core Tracker</h3>
+                        <p>Track post-delivery physical healing, pelvic floor stability, and core muscle rehabilitation.</p>
+                    </div>
+                    <span class="tool-link">Start Tracker <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- TOOL 1: BREAST FIRMNESS -->
+        <div id="tool-breast" class="view-section">
+            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to All Tools</button>
+            <div class="card">
+                <h2 class="tool-title">Breast Firmness & Ptosis Assessment</h2>
+                <p class="tool-subtitle">Select your visual stage and clinical details to generate an instant report.</p>
+                
+                <label style="margin-bottom: 12px; display: block;">Select Anatomical Stage:</label>
+                <div class="diagram-grid">
+                    <div class="stage-card selected" onclick="selectBreastStage(0, this)">
+                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c50 0 110 20 100 55s-50 35-90 35" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="140" x2="180" y2="140" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><circle cx="140" cy="100" r="6" fill="#c5a880"/></svg>
+                        <h4>Stage 0 (Firm)</h4>
+                    </div>
+                    <div class="stage-card" onclick="selectBreastStage(1, this)">
+                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c40 5 110 35 95 75s-50 25-95 20" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="125" x2="180" y2="125" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><circle cx="134" cy="125" r="6" fill="#c5a880"/></svg>
+                        <h4>Stage 1 (Mild)</h4>
+                    </div>
+                    <div class="stage-card" onclick="selectBreastStage(2, this)">
+                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c30 10 100 50 85 95s-50 15-85 5" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="120" x2="180" y2="120" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><circle cx="120" cy="140" r="6" fill="#c5a880"/></svg>
+                        <h4>Stage 2 (Moderate)</h4>
+                    </div>
+                    <div class="stage-card" onclick="selectBreastStage(3, this)">
+                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c20 15 90 60 70 115s-40 5-70-10" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="110" x2="180" y2="110" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><circle cx="95" cy="172" r="6" fill="#c5a880"/></svg>
+                        <h4>Stage 3 (Advanced)</h4>
+                    </div>
+                </div>
 
                 <div class="form-grid">
-                    
-                    <div class="form-group">
-                        <label for="age">Age Group</label>
-                        <select id="age">
-                            <option value="under25">Under 25 years</option>
-                            <option value="25-35" selected>25 – 35 years</option>
-                            <option value="36-45">36 – 45 years</option>
-                            <option value="above45">Above 45 years</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="breastfeeding">Lactation / Breastfeeding History</label>
-                        <select id="breastfeeding">
-                            <option value="none">None / Never</option>
-                            <option value="under6m">Under 6 months</option>
-                            <option value="6-12m">6 – 12 months</option>
-                            <option value="over12m">More than 12 months (multiple children)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="weightFluctuation">Weight Fluctuations History</label>
-                        <select id="weightFluctuation">
-                            <option value="stable">Stable Weight</option>
-                            <option value="moderate">Moderate (+/- 5 to 10 kg)</option>
-                            <option value="frequent">Frequent / Significant (+10 kg+)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="skinElasticity">Skin Elasticity & Bounce-back</label>
-                        <select id="skinElasticity">
-                            <option value="good">Good (Bounces back quickly)</option>
-                            <option value="moderate">Moderate (Slight softness/stretch)</option>
-                            <option value="poor">Poor (Thin, stretched, slow bounce)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bpStatus">Blood Pressure / Vascular Health</label>
-                        <select id="bpStatus">
-                            <option value="normal">Normal (120/80 or lower)</option>
-                            <option value="prehypertension">Slightly Elevated</option>
-                            <option value="hypertension">High Blood Pressure / Medical Care</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="braSupport">Exercise & Sports Bra Support Habit</label>
-                        <select id="braSupport">
-                            <option value="always">Always wear supportive bras during workout</option>
-                            <option value="sometimes">Sometimes / Light support</option>
-                            <option value="rarely">Rarely / No support during high impact</option>
-                        </select>
-                    </div>
-
+                    <div class="form-group"><label>Age Group</label><select id="b-age"><option>Under 25</option><option selected>25 - 35</option><option>36 - 45</option><option>Above 45</option></select></div>
+                    <div class="form-group"><label>Lactation History</label><select id="b-lac"><option>None / Never</option><option>Under 6 months</option><option>6 - 12 months</option><option>Over 12 months</option></select></div>
                 </div>
-
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
-                    <button class="btn btn-primary" onclick="generateReport()">Generate Clinical Report <i class="fas fa-magic"></i></button>
-                </div>
-            </div>
-
-            <!-- STEP 3: Self-Assessment Report & Optional WhatsApp Consultation -->
-            <div class="step-content" id="step-3">
+                <button class="btn btn-primary" onclick="calcBreast()">Generate Clinical Report</button>
                 
-                <div class="result-box">
-                    <span class="result-badge" id="report-stage-badge">STAGE ASSESSMENT</span>
-                    <h3 id="report-title">Analysis Complete</h3>
-                    <p id="report-summary" style="font-size: 0.95rem; color: #4b5563;"></p>
-                </div>
-
-                <div class="report-section">
-                    <h4>Primary Contributing Factors</h4>
-                    <ul id="report-factors"></ul>
-                </div>
-
-                <div class="report-section">
-                    <h4>Dr. Ayesha's Recommended Non-Surgical Regimen</h4>
-                    <ul id="report-recommendations"></ul>
-                </div>
-
-                <!-- Optional Consultation Prompt -->
-                <div style="margin-top: 35px; background: #fff; border: 1px dashed var(--accent-gold); padding: 25px; border-radius: var(--radius-md); text-align: center;">
-                    <h4 style="color: var(--brand-navy); margin-bottom: 8px; font-size: 1.1rem;">Would you like a professional expert consultation?</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
-                        If you wish to discuss your assessment results with Dr. Ayesha for a customized one-on-one care plan, you can securely share your report directly via WhatsApp.
-                    </p>
-                    <button class="btn btn-whatsapp-large" onclick="sendToWhatsApp()">
-                        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> Connect with Dr. Ayesha on WhatsApp
+                <div id="res-breast" class="result-box">
+                    <h3 id="res-b-title"></h3>
+                    <p id="res-b-desc" style="color:#4b5563; font-size:0.95rem; margin-bottom:15px;"></p>
+                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('Breast Firmness Report', document.getElementById('res-b-title').innerText)">
+                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
                     </button>
                 </div>
-
-                <div class="btn-group" style="margin-top: 25px;">
-                    <button class="btn btn-secondary" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Edit Details</button>
-                </div>
-
-                <div class="disclaimer">
-                    <strong>Medical Disclaimer:</strong> This self-assessment tool is provided for educational and wellness guidance purposes only. Your data is private and only shared if you explicitly choose to click the WhatsApp connection button.
-                </div>
-
             </div>
-
-        </div>
-
-    </div>
-
-    <script>
-        let selectedStage = 0;
-
-        function selectStage(stageNumber, element) {
-            selectedStage = stageNumber;
-            const cards = document.querySelectorAll('.stage-card');
-            cards.forEach(card => card.classList.remove('selected'));
-            element.classList.add('selected');
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const firstCard = document.querySelectorAll('.stage-card')[0];
-            if(firstCard) firstCard.classList.add('selected');
-        });
-
-        function goToStep(step) {
-            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-            document.getElementById(`step-${step}`).classList.add('active');
-
-            const circle1 = document.getElementById('circle-1');
-            const circle2 = document.getElementById('circle-2');
-            const circle3 = document.getElementById('circle-3');
-            const fill = document.getElementById('progress-fill');
-
-            if (step === 1) {
-                fill.style.width = '0%';
-                circle1.className = 'step-circle active';
-                circle2.className = 'step-circle';
-                circle3.className = 'step-circle';
-            } else if (step === 2) {
-                fill.style.width = '50%';
-                circle1.className = 'step-circle completed';
-                circle2.className = 'step-circle active';
-                circle3.className = 'step-circle';
-            } else if (step === 3) {
-                fill.style.width = '100%';
-                circle1.className = 'step-circle completed';
-                circle2.className = 'step-circle completed';
-                circle3.className = 'step-circle active';
-            }
-
-            window.scrollTo({ top: 150, behavior: 'smooth' });
-        }
-
-        function generateReport() {
-            const breastfeeding = document.getElementById('breastfeeding').value;
-            const weightFluctuation = document.getElementById('weightFluctuation').value;
-            const skinElasticity = document.getElementById('skinElasticity').value;
-            const braSupport = document.getElementById('braSupport').value;
-
-            const badge = document.getElementById('report-stage-badge');
-            const title = document.getElementById('report-title');
-            const summary = document.getElementById('report-summary');
-            const factorsList = document.getElementById('report-factors');
-            const recoList = document.getElementById('report-recommendations');
-
-            factorsList.innerHTML = '';
-            recoList.innerHTML = '';
-
-            if (selectedStage === 0) {
-                badge.innerText = "STAGE 0 • FIRM & ELEVATED";
-                title.innerText = "Optimal Tissue Elasticity";
-                summary.innerText = "Your breast tissue displays excellent natural position and firm ligament support. Maintenance regimens will focus on preserving Cooper's ligament elasticity and skin hydration.";
-            } else if (selectedStage === 1) {
-                badge.innerText = "STAGE 1 • MILD LAXITY";
-                title.innerText = "Initial Tissue Softening";
-                summary.innerText = "Nipple positioning is aligned with the inframammary fold line. Non-surgical targeted therapies, microcurrent skin tightening, and pectoral strengthening can yield excellent corrective results.";
-            } else if (selectedStage === 2) {
-                badge.innerText = "STAGE 2 • MODERATE PTOSIS";
-                title.innerText = "Moderate Sagging Identified";
-                summary.innerText = "Tissue laxity has progressed below the fold line. A tailored clinical plan focusing on collagen remodeling, deep hydration, and structural support exercise is highly recommended.";
-            } else {
-                badge.innerText = "STAGE 3 • ADVANCED PTOSIS";
-                title.innerText = "Advanced Structural Laxity";
-                summary.innerText = "Significant loss of upper pole volume and stretch in supporting ligaments. A comprehensive consultation with Dr. Ayesha is advised to evaluate specialized tightening and firming protocols.";
-            }
-
-            if (breastfeeding !== 'none') {
-                factorsList.innerHTML += `<li>Lactation history: Post-lactation volume changes contribute to envelope stretching.</li>`;
-            }
-            if (weightFluctuation !== 'stable') {
-                factorsList.innerHTML += `<li>Weight fluctuations: Stretching of skin envelope and adipose tissue shifts.</li>`;
-            }
-            if (skinElasticity === 'poor' || skinElasticity === 'moderate') {
-                factorsList.innerHTML += `<li>Reduced dermal collagen & elastin bounce-back.</li>`;
-            }
-            if (braSupport !== 'always') {
-                factorsList.innerHTML += `<li>Inadequate support during high-impact movement leading to Cooper's ligament strain.</li>`;
-            }
-            if (factorsList.children.length === 0) {
-                factorsList.innerHTML = `<li>Natural age-related glandular changes and micro-gravity effects.</li>`;
-            }
-
-            recoList.innerHTML += `<li><strong>Pectoralis Muscle Toning:</strong> Targeted isometric chest presses & targeted resistance training to create a natural chest lift base.</li>`;
-            recoList.innerHTML += `<li><strong>Topical Tightening Regimen:</strong> Daily bio-active peptide & collagen-boosting serums applied with upward lymphatic massage.</li>`;
-            if (skinElasticity === 'poor' || selectedStage >= 2) {
-                recoList.innerHTML += `<li><strong>Advanced Non-Surgical Therapy:</strong> Radiofrequency (RF) skin tightening or microcurrent dermal therapy.</li>`;
-            }
-            recoList.innerHTML += `<li><strong>Structural Support:</strong> Professional bra fitting for high-impact activity and daily wear.</li>`;
-
-            goToStep(3);
-        }
-
-        function sendToWhatsApp() {
-            const age = document.getElementById('age').options[document.getElementById('age').selectedIndex].text;
-            const breastfeeding = document.getElementById('breastfeeding').options[document.getElementById('breastfeeding').selectedIndex].text;
-            const weightFluctuation = document.getElementById('weightFluctuation').options[document.getElementById('weightFluctuation').selectedIndex].text;
-            const skinElasticity = document.getElementById('skinElasticity').options[document.getElementById('skinElasticity').selectedIndex].text;
-            const bpStatus = document.getElementById('bpStatus').options[document.getElementById('bpStatus').selectedIndex].text;
-            const braSupport = document.getElementById('braSupport').options[document.getElementById('braSupport').selectedIndex].text;
-
-            const stageNames = ["Stage 0 (Firm / Normal)", "Stage 1 (Mild Laxity)", "Stage 2 (Moderate Ptosis)", "Stage 3 (Advanced Ptosis)"];
-            const chosenStage = stageNames[selectedStage];
-
-            const message = `Hello Dr. Ayesha, I completed the Breast Ptosis Self-Assessment tool on your website.\n\n` +
-                `*My Assessment Summary:*\n` +
-                `• *Visual Stage:* ${chosenStage}\n` +
-                `• *Age Group:* ${age}\n` +
-                `• *Lactation History:* ${breastfeeding}\n` +
-                `• *Weight History:* ${weightFluctuation}\n` +
-                `• *Skin Elasticity:* ${skinElasticity}\n` +
-                `• *Blood Pressure Status:* ${bpStatus}\n` +
-                `• *Bra Support Habit:* ${braSupport}\n\n` +
-                `I would like to book a consultation for a personalized treatment plan based on these results.`;
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappNumber = "971505266109";
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
-</body>
-</html>
