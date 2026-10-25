@@ -13,20 +13,21 @@
     
     <style>
         :root {
-            --bg-body: #faf8f5;
+            --bg-body: #fdfbf7;
             --surface-card: #ffffff;
             --text-primary: #1e2530;
             --text-muted: #6b7280;
             --accent-gold: #c5a880;
             --accent-gold-dark: #a88a61;
-            --accent-rose: #f4e8e1;
+            --accent-rose: #f7eee9;
             --accent-rose-dark: #e8d0c3;
             --brand-navy: #131b2a;
-            --border-color: #eee7de;
-            --radius-lg: 16px;
-            --radius-md: 10px;
-            --shadow: 0 10px 30px rgba(19, 27, 42, 0.05);
-            --shadow-hover: 0 20px 40px rgba(197, 168, 128, 0.25);
+            --brand-navy-light: #1e2a44;
+            --border-color: #e6ded4;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --shadow: 0 10px 30px rgba(19, 27, 42, 0.06);
+            --shadow-hover: 0 20px 45px rgba(197, 168, 128, 0.22);
         }
 
         * {
@@ -47,23 +48,35 @@
             font-family: 'Playfair Display', serif;
         }
 
-        .top-bar {
-            background: var(--brand-navy);
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-light) 100%);
             color: #fff;
             text-align: center;
             padding: 10px 20px;
             font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--accent-gold);
         }
 
+        .announcement-bar span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Header */
         header {
             background: var(--surface-card);
             border-bottom: 1px solid var(--border-color);
-            padding: 20px 0;
+            padding: 18px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         .header-container {
@@ -76,7 +89,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--brand-navy);
             text-decoration: none;
@@ -90,7 +103,7 @@
         .btn-whatsapp-header {
             background-color: #25d366;
             color: white;
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -99,6 +112,7 @@
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
 
         .btn-whatsapp-header:hover {
@@ -114,24 +128,25 @@
 
         .intro-box {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .badge {
             display: inline-block;
             background: var(--accent-rose);
             color: var(--brand-navy);
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 15px;
+            border: 1px solid var(--accent-rose-dark);
         }
 
         .intro-box h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             color: var(--brand-navy);
             margin-bottom: 12px;
         }
@@ -160,18 +175,18 @@
         /* Tools Grid on Home */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
             gap: 25px;
         }
 
         .tool-card {
             background: var(--surface-card);
             border-radius: var(--radius-lg);
-            padding: 30px;
+            padding: 32px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -179,49 +194,57 @@
         }
 
         .tool-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent-gold);
+            background: linear-gradient(to bottom, #ffffff, #fcfaf7);
         }
 
         .tool-icon {
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             background: var(--accent-rose);
             color: var(--brand-navy);
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            transition: background 0.3s ease, color 0.3s ease;
+            font-size: 1.6rem;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
         }
 
         .tool-card:hover .tool-icon {
             background: var(--brand-navy);
             color: var(--accent-gold);
+            transform: scale(1.05);
         }
 
         .tool-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--brand-navy);
             margin-bottom: 10px;
         }
 
         .tool-card p {
             color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 20px;
+            font-size: 0.93rem;
+            margin-bottom: 22px;
         }
 
         .tool-link {
             font-weight: 600;
             color: var(--accent-gold-dark);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .tool-card:hover .tool-link {
+            gap: 12px;
+            color: var(--brand-navy);
         }
 
         /* Inner Tool Page Styles */
@@ -234,10 +257,10 @@
         }
 
         .back-btn {
-            background: transparent;
+            background: var(--surface-card);
             border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            padding: 8px 18px;
+            color: var(--text-primary);
+            padding: 10px 22px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -247,29 +270,31 @@
             gap: 8px;
             margin-bottom: 25px;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
 
         .back-btn:hover {
-            background: var(--border-color);
-            color: var(--brand-navy);
+            background: var(--brand-navy);
+            color: #fff;
+            border-color: var(--brand-navy);
         }
 
         .tool-title {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: var(--brand-navy);
             margin-bottom: 8px;
         }
 
         .tool-subtitle {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             margin-bottom: 30px;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 22px;
             margin-bottom: 30px;
         }
 
@@ -285,33 +310,38 @@
             gap: 8px;
         }
 
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
         label {
-            font-size: 0.9rem;
+            font-size: 0.91rem;
             font-weight: 600;
             color: var(--brand-navy);
         }
 
         select, input {
-            padding: 12px 15px;
+            padding: 13px 16px;
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             font-size: 0.95rem;
             background: var(--bg-body);
             color: var(--text-primary);
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         select:focus, input:focus {
             border-color: var(--accent-gold);
             background: #fff;
+            box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.15);
         }
 
         .btn {
-            padding: 12px 28px;
+            padding: 13px 30px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
@@ -337,22 +367,23 @@
             padding: 15px 32px;
             width: 100%;
             justify-content: center;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 10px 22px rgba(37, 211, 102, 0.25);
             margin-top: 25px;
+            border-radius: 50px;
         }
 
         .btn-whatsapp-large:hover {
             background-color: #1eb954;
             transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 14px 28px rgba(37, 211, 102, 0.35);
         }
 
         .result-box {
             background: var(--accent-rose);
             border: 1px solid var(--accent-rose-dark);
             border-radius: var(--radius-md);
-            padding: 25px;
-            margin-top: 25px;
+            padding: 30px;
+            margin-top: 30px;
             margin-bottom: 20px;
             text-align: center;
             display: none;
@@ -360,8 +391,8 @@
 
         .result-box h3 {
             color: var(--brand-navy);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
         }
 
         .diagram-grid {
@@ -374,7 +405,7 @@
         .stage-card {
             border: 2px solid var(--border-color);
             border-radius: var(--radius-md);
-            padding: 12px;
+            padding: 14px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -383,11 +414,13 @@
 
         .stage-card:hover {
             border-color: var(--accent-gold-dark);
+            transform: translateY(-3px);
         }
 
         .stage-card.selected {
             border-color: var(--accent-gold);
             background: var(--accent-rose);
+            box-shadow: 0 6px 15px rgba(197, 168, 128, 0.2);
         }
 
         .stage-card svg {
@@ -405,17 +438,19 @@
             font-size: 0.75rem;
             color: var(--text-muted);
             text-align: center;
-            margin-top: 25px;
-            line-height: 1.4;
+            margin-top: 30px;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        Confidential Clinical Care • Dr. Ayesha Elite Care
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <i class="fas fa-sparkles"></i> Exclusive Women's Health & Wellness Hub • <span>Book Direct Consultation with Dr. Ayesha</span>
     </div>
 
+    <!-- Header -->
     <header>
         <div class="header-container">
             <a href="#" class="logo" onclick="showHome(); return false;">Dr. Ayesha <span>Elite Care</span></a>
@@ -432,7 +467,7 @@
             <div class="intro-box">
                 <span class="badge">Elite Women's Wellness Hub</span>
                 <h1>Advanced Clinical Self-Assessment Tools</h1>
-                <p>Select any diagnostic tool below to perform an interactive assessment, view your instant clinical report, and connect privately with Dr. Ayesha.</p>
+                <p>Select any specialized diagnostic tool below to perform an interactive assessment, view your instant clinical report, and connect privately with Dr. Ayesha.</p>
             </div>
 
             <div class="tools-grid">
@@ -531,22 +566,4 @@
                         <h4>Stage 2 (Moderate)</h4>
                     </div>
                     <div class="stage-card" onclick="selectBreastStage(3, this)">
-                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c20 15 90 60 70 115s-40 5-70-10" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="110" x2="180" y2="110" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><circle cx="95" cy="172" r="6" fill="#c5a880"/></svg>
-                        <h4>Stage 3 (Advanced)</h4>
-                    </div>
-                </div>
-
-                <div class="form-grid">
-                    <div class="form-group"><label>Age Group</label><select id="b-age"><option>Under 25</option><option selected>25 - 35</option><option>36 - 45</option><option>Above 45</option></select></div>
-                    <div class="form-group"><label>Lactation History</label><select id="b-lac"><option>None / Never</option><option>Under 6 months</option><option>6 - 12 months</option><option>Over 12 months</option></select></div>
-                </div>
-                <button class="btn btn-primary" onclick="calcBreast()">Generate Clinical Report</button>
-                
-                <div id="res-breast" class="result-box">
-                    <h3 id="res-b-title"></h3>
-                    <p id="res-b-desc" style="color:#4b5563; font-size:0.95rem; margin-bottom:15px;"></p>
-                    <button class="btn btn-whatsapp-large" onclick="sendWhatsApp('Breast Firmness Report', document.getElementById('res-b-title').innerText)">
-                        <i class="fab fa-whatsapp"></i> Connect with Dr. Ayesha on WhatsApp
-                    </button>
-                </div>
-            </div>
+                        <svg viewBox="0 0 200 200" fill="none"><path d="M40 20v160M40 50c20 15 90 60 70 115s-40 5-70-10" stroke="#1e2530" stroke-width="3" fill="#f4e8e1"/><line x1="20" y1="110" x2="180" y2="110" stroke="#c5a880" stroke-width="2" stroke-dasharray="3 3"/><c
